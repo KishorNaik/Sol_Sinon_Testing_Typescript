@@ -3,7 +3,7 @@ export type JSONValue = string | number | boolean | null | JSONObject | JSONArra
 export interface JSONArray extends Array<JSONValue> {}
 
 export interface JSONObject {
-    [key: string]: JSONValue;
+	[key: string]: JSONValue;
 }
 
 export type JsonStringGeneric<T> = string & { __jsonString: T };
