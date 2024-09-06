@@ -19,6 +19,7 @@ import { ResultError } from '../core/shared/utils/exceptions';
 import { StatusCodes } from 'http-status-codes';
 import { DemoMediatorResponseDto } from '../core/modules/demo/services/withMediatR';
 import * as demoFunction from '../core/modules/demo/services/withFunction';
+import { faker } from '@faker-js/faker';
 
 describe('Demo Test', () => {
 	let _demoCommandHandler: DemoCommandHandler;
@@ -73,8 +74,8 @@ describe('Demo Test', () => {
 	test(`should return false if mediator response failed`, async () => {
 		// Arrange
 		const request = new DemoRequestDTO();
-		request.id = 1;
-		request.value = 'test';
+		request.id = faker.number.int({ min: 1, max: 100 });
+		request.value = faker.string.alpha();
 		const command = new DemoCommand(request);
 
 		let guardStub = sinon.stub(_demoCommandHandler as any, 'guard').returns(new Ok(undefined));
@@ -98,8 +99,8 @@ describe('Demo Test', () => {
 	test(`should return false if mediator response throw exception`, async () => {
 		// Arrange
 		const request = new DemoRequestDTO();
-		request.id = 1;
-		request.value = 'test';
+		request.id = faker.number.int({ min: 1, max: 100 });
+		request.value = faker.string.alpha();
 		const command = new DemoCommand(request);
 
 		let guardStub = sinon.stub(_demoCommandHandler as any, 'guard').returns(new Ok(undefined));
@@ -121,8 +122,8 @@ describe('Demo Test', () => {
 	test(`should return false if service response failed`, async () => {
 		// Arrange
 		const request = new DemoRequestDTO();
-		request.id = 1;
-		request.value = 'test';
+		request.id = faker.number.int({ min: 1, max: 100 });
+		request.value = faker.string.alpha();
 		const command = new DemoCommand(request);
 
 		let guardStub = sinon.stub(_demoCommandHandler as any, 'guard').returns(new Ok(undefined));
@@ -150,8 +151,8 @@ describe('Demo Test', () => {
 	test(`should return false if service response throw exception`, async () => {
 		// Arrange
 		const request = new DemoRequestDTO();
-		request.id = 1;
-		request.value = 'test';
+		request.id = faker.number.int({ min: 1, max: 100 });
+		request.value = faker.string.alpha();
 		const command = new DemoCommand(request);
 
 		let guardStub = sinon.stub(_demoCommandHandler as any, 'guard').returns(new Ok(undefined));
@@ -177,8 +178,8 @@ describe('Demo Test', () => {
 	test(`should return false if demo function failed`, async () => {
 		// Arrange
 		const request = new DemoRequestDTO();
-		request.id = 1;
-		request.value = 'test';
+		request.id = faker.number.int({ min: 1, max: 100 });
+		request.value = faker.string.alpha();
 		const command = new DemoCommand(request);
 
 		let guardStub = sinon.stub(_demoCommandHandler as any, 'guard').returns(new Ok(undefined));
@@ -210,8 +211,8 @@ describe('Demo Test', () => {
 	test(`should return false if demo function throws exception`, async () => {
 		// Arrange
 		const request = new DemoRequestDTO();
-		request.id = 1;
-		request.value = 'test';
+		request.id = faker.number.int({ min: 1, max: 100 });
+		request.value = faker.string.alpha();
 		const command = new DemoCommand(request);
 
 		let guardStub = sinon.stub(_demoCommandHandler as any, 'guard').returns(new Ok(undefined));

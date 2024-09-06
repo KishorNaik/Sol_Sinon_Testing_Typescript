@@ -27,6 +27,7 @@
 		"node": ">= 14 < 21"
 	},
 	"devDependencies": {
+		"@faker-js/faker": "^9.0.0",
 		"@swc/cli": "^0.4.0",
 		"@swc/core": "^1.7.14",
 		"@types/glob": "^8.1.0",
